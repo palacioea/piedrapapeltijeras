@@ -1,16 +1,23 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import random
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def play():
+    user = input('Cual es tu elección? "R" para piedra, "P" para papel, "T" para tijera \n').upper()
+    computer = random.choice(["R", "P", "T"])
+
+    if user == computer:
+        return "Es un empate"
+
+    if is_winner(user, computer):
+        return "Ganaste!"
+
+    return "Perdiste! :("
 
 
-# Press the green button in the gutter to run the script.
+def is_winner(player, oponent):
+    if (player == "R" and oponent == "P") or (player == "T" and oponent == "P") or (player == "P" and oponent == "R"):
+        return True
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print(play())
